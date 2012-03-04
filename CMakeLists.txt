@@ -4,6 +4,14 @@ project (sfml-test)
 
 set (CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/Modules)
 
+set (EXECUTABLE "ss14")
+set (SRC_FILES 
+src/floor.cpp
+src/item.cpp
+src/main.cpp
+src/map.cpp
+src/object.cpp)
+
 # Libraries
 set (CMAKE_FIND_FRAMEWORK "NEVER")
 find_package (SFML REQUIRED system window)
@@ -11,9 +19,8 @@ set (CMAKE_FIND_FRAMEWORK "ONCE")
 find_package (OpenGL REQUIRED)
 
 # Build Settings
-set (EXECUTABLE "sfml-test")
-set (SRC_FILES "main.cpp")
 set (PROJECT_INCLUDES ${SFML_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS})
+include_directories (include)
 
 
 # Build setup
