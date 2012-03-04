@@ -20,7 +20,7 @@ find_package (OpenGL REQUIRED)
 
 # Build Settings
 set (PROJECT_INCLUDES ${SFML_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS})
-include_directories (include)
+include_directories (src)
 
 # Build setup
 add_executable (${EXECUTABLE} ${SRC_FILES})
