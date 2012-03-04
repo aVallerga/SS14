@@ -18,6 +18,9 @@ find_package (SFML REQUIRED system window graphics)
 set (CMAKE_FIND_FRAMEWORK "ONCE")
 find_package (OpenGL REQUIRED)
 
+# Copy art assets
+file (COPY tiles DESTINATION ${CMAKE_BINARY_DIR})
+
 # Build Settings
 set (PROJECT_INCLUDES ${SFML_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS})
 include_directories (src)
