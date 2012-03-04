@@ -11,7 +11,7 @@ int main() {
 
   // Sprite testing
   sf::Texture texture;
-  if(!texture.LoadFromFile("tiles/floortile.png")) {
+  if(!texture.LoadFromFile("tiles/floor.png")) {
     cout << "Couldn't find floortile.png" << endl;
     return 0;
   }

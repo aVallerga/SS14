@@ -37,7 +37,6 @@ void Map::draw(sf::Texture &texture) {
       if(map[j][i] != 0) {
         sf::Sprite sprite;
         sprite.SetTexture(texture);
-        sprite.SetScale(0.5f, 0.5f);
         sprite.SetPosition(j*32, i*32);
         m_render->Draw(sprite);
       }
