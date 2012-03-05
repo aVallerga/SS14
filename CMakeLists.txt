@@ -5,12 +5,10 @@ project (ss14)
 set (CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/Modules)
 
 set (EXECUTABLE "ss14")
-set (SRC_FILES 
-src/floor.cpp
-src/item.cpp
+set (SRC_FILES
 src/main.cpp
 src/map.cpp
-src/object.cpp)
+src/tile.cpp)
 
 # Libraries
 set (CMAKE_FIND_FRAMEWORK "NEVER")

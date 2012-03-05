@@ -2,10 +2,6 @@
 
 using namespace std;
 
-//Map::Map(int x, int y) {
-//  int map[x][y];
-//}
-
 Map::Map(sf::RenderWindow *render) {
   m_render = render;
   m_xMapSize = 20;
@@ -31,12 +27,12 @@ void Map::drawToConsole() {
   }
 }
 
-void Map::draw(sf::Texture &texture) {
+void Map::draw() {
+  sf::Sprite sprite;
   for(int i = 0; i < m_yMapSize; i++) {
     for(int j = 0; j < m_yMapSize; j++) {
       if(map[j][i] != 0) {
-        sf::Sprite sprite;
-        sprite.SetTexture(texture);
+        sprite.SetTexture(*map[j][i]->getTexture());
         sprite.SetPosition(j*32, i*32);
         m_render->Draw(sprite);
       }
@@ -44,10 +40,6 @@ void Map::draw(sf::Texture &texture) {
   }
 }
 
-void Map::insertItem(Item *item, int x, int y) {
-  map[x][y] = item;
-}
-
-void Map::insertFloor(Floor *floor, int x, int y) {
-  map[x][y] = floor;
+void Map::insertTile(Tile *tile, int x, int y) {
+  map[x][y] = tile;
 }
