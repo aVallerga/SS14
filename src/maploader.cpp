@@ -23,7 +23,7 @@ Map* MapLoader::loadMap(sf::RenderWindow *render, string filename) {
 sf::Image* MapLoader::loadMapFromFile(string filename) {
   sf::Image *mapimage = new sf::Image;
   if(!mapimage->LoadFromFile(filename)) {
-    cout << "Error: Map file not found" << endl;
+    cerr << "Error: Map file not found" << endl;
     exit(1);
   }
   return mapimage;
@@ -32,7 +32,7 @@ sf::Image* MapLoader::loadMapFromFile(string filename) {
 sf::Texture* MapLoader::getTexture(string filename) {
   sf::Texture *texture = new sf::Texture;
   if(!texture->LoadFromFile(filename)) {
-    cout << "Error: Texture " << filename << " not found." << endl;
+    cerr << "Error: Texture " << filename << " not found." << endl;
     exit(1);
   }
   return texture;
