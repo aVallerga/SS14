@@ -8,6 +8,7 @@ set (EXECUTABLE "ss14")
 set (SRC_FILES
 src/main.cpp
 src/map.cpp
+src/maploader.cpp
 src/tile.cpp)
 
 # Libraries
@@ -18,6 +19,7 @@ find_package (OpenGL REQUIRED)
 
 # Copy art assets
 file (COPY tiles DESTINATION ${CMAKE_BINARY_DIR})
+file (COPY map.png DESTINATION ${CMAKE_BINARY_DIR})
 
 # Build Settings
 set (PROJECT_INCLUDES ${SFML_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIRS})
