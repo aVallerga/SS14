@@ -14,9 +14,14 @@ int main() {
   sf::Event Event;
   while(App.IsOpen()) {
     App.PollEvent(Event);
+
     if(Event.Type == sf::Event::Closed) {
       App.Close();
+    } else if(Event.Type == sf::Event::Resized) {
+      sf::FloatRect fr(0, 0, Event.Size.Width, Event.Size.Height);
+      App.SetView(sf::View(fr));
     }
+
     glClearDepth(1.f);
     glClearColor(0.f, 0.f, 0.f, 0.f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
