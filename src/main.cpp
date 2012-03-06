@@ -15,6 +15,10 @@ int main() {
 
   Player *player = new Player(&App);
 
+  bool keyPressed = false;
+  char key;
+  int count = 0;
+
   sf::Event Event;
   while(App.IsOpen()) {
     App.PollEvent(Event);
@@ -27,13 +31,31 @@ int main() {
     }
 
     if(sf::Keyboard::IsKeyPressed(sf::Keyboard::Left)) {
-      player->moveLeft();
+      keyPressed = true;
+      key = 'l';
     } else if(sf::Keyboard::IsKeyPressed(sf::Keyboard::Right)) {
-      player->moveRight();
+      keyPressed = true;
+      key = 'r';
     } else if(sf::Keyboard::IsKeyPressed(sf::Keyboard::Up)) {
-      player->moveUp();
+      keyPressed = true;
+      key = 'u';
     } else if(sf::Keyboard::IsKeyPressed(sf::Keyboard::Down)) {
-      player->moveDown();
+      keyPressed = true;
+      key = 'd';
+    }
+
+    if(count >= 25 && keyPressed == true) {
+      if(key == 'l') {
+        player->moveLeft();
+      } else if(key == 'r') {
+        player->moveRight();
+      } else if(key == 'u') {
+        player->moveUp();
+      } else if(key == 'd') {
+        player->moveDown();
+      }
+      key = 'a';
+      count = 0;
     }
 
     glClearDepth(1.f);
@@ -42,6 +64,8 @@ int main() {
     map->draw();
     player->draw();
     App.Display();
+    ++count;
+    keyPressed = false;
   }
 
   return 0;

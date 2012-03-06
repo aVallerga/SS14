@@ -12,20 +12,20 @@ Player::~Player() {
 }
 
 void Player::moveRight() {
-  m_xPos += 1;
+  m_xPos += 32;
 }
 
 
 void Player::moveLeft() {
-  m_xPos -= 1;
+  m_xPos -= 32;
 }
 
 void Player::moveUp() {
-  m_yPos -= 1;
+  m_yPos -= 32;
 }
 
 void Player::moveDown() {
-  m_yPos += 1;
+  m_yPos += 32;
 }
 
 void Player::draw() {
