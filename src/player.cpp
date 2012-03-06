@@ -21,11 +21,11 @@ void Player::moveLeft() {
 }
 
 void Player::moveUp() {
-  m_yPos += 1;
+  m_yPos -= 1;
 }
 
 void Player::moveDown() {
-  m_yPos -= 1;
+  m_yPos += 1;
 }
 
 void Player::draw() {
