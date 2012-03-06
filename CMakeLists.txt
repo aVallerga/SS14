@@ -9,7 +9,9 @@ set (SRC_FILES
 src/main.cpp
 src/map.cpp
 src/maploader.cpp
-src/tile.cpp)
+src/tile.cpp
+src/player.cpp
+src/util.cpp)
 
 # Libraries
 set (CMAKE_FIND_FRAMEWORK "NEVER")
@@ -19,6 +21,7 @@ find_package (OpenGL REQUIRED)
 
 # Copy art assets
 file (COPY tiles DESTINATION ${CMAKE_BINARY_DIR})
+file (COPY entity DESTINATION ${CMAKE_BINARY_DIR})
 file (COPY map.png DESTINATION ${CMAKE_BINARY_DIR})
 
 # Build Settings

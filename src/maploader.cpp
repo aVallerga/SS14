@@ -8,9 +8,9 @@ Map* MapLoader::loadMap(sf::RenderWindow *render, string filename) {
       sf::Color pixel = mapimage->GetPixel(j, i);
       Tile *tile = NULL;
       if(pixel.r == 153 && pixel.g == 153 && pixel.b == 153) {
-        tile = new Tile(getTexture("tiles/floor.png"));
+        tile = new Tile(Util::getTexture("tiles/floor.png"));
       } else if(pixel.r == 0 && pixel.g == 0 && pixel.b == 0) {
-        tile = new Tile(getTexture("tiles/wall.png"));
+        tile = new Tile(Util::getTexture("tiles/wall.png"));
       }
       if(tile != NULL) {
         map->insertTile(tile, j, i);
@@ -27,13 +27,4 @@ sf::Image* MapLoader::loadMapFromFile(string filename) {
     exit(1);
   }
   return mapimage;
-}
-
-sf::Texture* MapLoader::getTexture(string filename) {
-  sf::Texture *texture = new sf::Texture;
-  if(!texture->LoadFromFile(filename)) {
-    cerr << "Error: Texture " << filename << " not found." << endl;
-    exit(1);
-  }
-  return texture;
 }

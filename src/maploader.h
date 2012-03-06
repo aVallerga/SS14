@@ -5,6 +5,7 @@
 #include <iostream>
 #include <cstdlib>
 #include "map.h"
+#include "util.h"
 
 using namespace std;
 
@@ -13,7 +14,6 @@ class MapLoader {
     static Map* loadMap(sf::RenderWindow *render, string filename);
   private:
     static sf::Image* loadMapFromFile(string filename);
-    static sf::Texture* getTexture(string filename);
     MapLoader();
 };
 
