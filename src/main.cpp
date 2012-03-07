@@ -21,6 +21,7 @@ int main() {
 
   sf::Event Event;
   while(App.IsOpen()) {
+    cout << count << endl;
     App.PollEvent(Event);
 
     if(Event.Type == sf::Event::Closed) {
@@ -42,6 +43,8 @@ int main() {
     } else if(sf::Keyboard::IsKeyPressed(sf::Keyboard::Down)) {
       keyPressed = true;
       key = 'd';
+    } else if(sf::Keyboard::IsKeyPressed(sf::Keyboard::Escape)) {
+      App.Close();
     }
 
     if(count >= 25 && keyPressed == true) {
