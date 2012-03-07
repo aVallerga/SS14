@@ -22,7 +22,6 @@ int main() {
   sf::Event Event;
   while(App.IsOpen()) {
     int ElapsedTime = Clock.GetElapsedTime().AsMilliseconds();    
-    cout << "Elapsed Time in miliseconds: " << ElapsedTime << endl;
     App.PollEvent(Event);
 
     if(Event.Type == sf::Event::Closed) {
