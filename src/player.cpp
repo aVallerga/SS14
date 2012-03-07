@@ -6,6 +6,7 @@ Player::Player(sf::RenderWindow *render) {
   m_render = render;
   m_xPos = 0;
   m_yPos = 0;
+  m_texture = Util::getTexture("entity/player.png");
 }
 
 Player::~Player() {
@@ -30,7 +31,7 @@ void Player::moveDown() {
 
 void Player::draw() {
   sf::Sprite sprite;
-  sprite.SetTexture(*Util::getTexture("entity/player.png"));
+  sprite.SetTexture(*m_texture);
   sprite.SetPosition(m_xPos, m_yPos);
   m_render->Draw(sprite);
 }

@@ -2,7 +2,6 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
-#include <SFML/Window.hpp>
 #include "maploader.h"
 #include "player.h"
 
@@ -17,10 +16,13 @@ int main() {
 
   bool keyPressed = false;
   char key;
-  int count = 0;
+  int preElapsedTime = 0;
 
+  sf::Clock Clock;
   sf::Event Event;
   while(App.IsOpen()) {
+    int ElapsedTime = Clock.GetElapsedTime().AsMilliseconds();    
+    cout << "Elapsed Time in miliseconds: " << ElapsedTime << endl;
     App.PollEvent(Event);
 
     if(Event.Type == sf::Event::Closed) {
@@ -42,9 +44,11 @@ int main() {
     } else if(sf::Keyboard::IsKeyPressed(sf::Keyboard::Down)) {
       keyPressed = true;
       key = 'd';
+    } else if(sf::Keyboard::IsKeyPressed(sf::Keyboard::Escape)) {
+      App.Close();
     }
 
-    if(count >= 25 && keyPressed == true) {
+    if(ElapsedTime - preElapsedTime >= 500 && keyPressed == true) {
       if(key == 'l') {
         player->moveLeft();
       } else if(key == 'r') {
@@ -55,7 +59,7 @@ int main() {
         player->moveDown();
       }
       key = 'a';
-      count = 0;
+      preElapsedTime = ElapsedTime;
     }
 
     glClearDepth(1.f);
@@ -64,7 +68,6 @@ int main() {
     map->draw();
     player->draw();
     App.Display();
-    ++count;
     keyPressed = false;
   }
 
