@@ -40,6 +40,10 @@ void Map::draw() {
   }
 }
 
+bool Map::isTileOpen(int x, int y) {
+  return map[x][y]->isOpen();
+}
+
 void Map::insertTile(Tile *tile, int x, int y) {
   map[x][y] = tile;
 }

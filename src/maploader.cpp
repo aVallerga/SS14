@@ -8,9 +8,9 @@ Map* MapLoader::loadMap(sf::RenderWindow *render, string filename) {
       sf::Color pixel = mapimage->GetPixel(j, i);
       Tile *tile = NULL;
       if(pixel.r == 153 && pixel.g == 153 && pixel.b == 153) {
-        tile = new Tile(Util::getTexture("tiles/floor.png"));
+        tile = new Tile(Util::getTexture("tiles/floor.png"), true);
       } else if(pixel.r == 0 && pixel.g == 0 && pixel.b == 0) {
-        tile = new Tile(Util::getTexture("tiles/wall.png"));
+        tile = new Tile(Util::getTexture("tiles/wall.png"), false);
       }
       if(tile != NULL) {
         map->insertTile(tile, j, i);

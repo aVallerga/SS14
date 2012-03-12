@@ -12,7 +12,7 @@ int main() {
 
   Map *map = MapLoader::loadMap(&App, "map.png");
 
-  Player *player = new Player(&App);
+  Player *player = new Player(&App, map);
 
   bool keyPressed = false;
   char key;

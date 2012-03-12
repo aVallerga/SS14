@@ -13,6 +13,7 @@ class Map {
     ~Map();
     void drawToConsole();
     void draw();
+    bool isTileOpen(int x, int y);
     void insertTile(Tile *tile, int x, int y);
   private:
     int m_xMapSize;
